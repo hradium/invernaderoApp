@@ -33,7 +33,7 @@ export class LoginPage {
     console.log(this.usuario);
     console.log(this.password);
 
-    this.http.get("/home")
+    this.http.get("/login/?usuario=" + this.usuario + '&password=' + this.password)
       .subscribe( data => {
       console.log(data.text());
       }, error => {
