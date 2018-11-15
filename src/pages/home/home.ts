@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Http} from "@angular/http";
+import {PlantaPage} from "../planta/planta";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  plantaPage = PlantaPage;
   invernaderos = [];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -14,6 +16,10 @@ export class HomePage {
     console.log(this.navParams.get('usuario'));
 
     this.getInvernaderos();
+
+  }
+  clickPlanta(i){
+    this.navCtrl.push(this.plantaPage, i);
 
   }
   getInvernaderos(){
